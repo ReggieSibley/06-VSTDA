@@ -1,0 +1,28 @@
+{
+  "name": "06-VSTDA",
+  "description": "To Do List",
+  "main": "src/index.html",
+  "authors": [
+    "Reggie Sibley"
+  ],
+  "license": "MIT",
+  "homepage": "css/index.html",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "./src/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.8",
+    "bootstrap": "^3.3.7",
+    "gulp": "^3.9.1"
+
+  },
+  "overrides": {
+    "bootstrap": {"main":["./dist/css/bootstrap.css", "./dist/js/bootstrap.js"]}
+  }
+}

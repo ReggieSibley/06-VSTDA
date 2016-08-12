@@ -1,0 +1,59 @@
+<!--Design your HTML page to look like the screenshot using Bootstrap or another preferred design framework.-->
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	  <meta charset="UTF-8">
+	  <title>Gulp Demo</title>
+	<!-- bower:css -->
+	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+	<!-- endbower -->
+
+	<!-- inject:css -->
+	<link rel="stylesheet" href="css/index.css">
+	<!-- endinject -->
+	</head>
+
+	<body ng-app ="myApp" ng-controller="mainCtrl">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-5">
+					<div id="title">A Simple ToDo App </div>
+					<div id="mainform">			
+						<form class="form-horizontal">
+
+							<label for ="task">Insert Task</label><br>
+							<input type="text" name="task" class="form-control" ng-model ="task.name" ><br>
+							<label for="priority">Priority</label>
+							<select name="priority" class="form-control" ng-model="task.priority">
+								<option value="1">Low Priority</option>
+								<option value="2">Medium Priority</option>
+								<option value="3">High Priority</option>
+							</select><br>
+							<button class="btn btn-primary" ng-click="addTask()">Add Todo</button>
+						</form>	
+					</div>	
+				</div>
+			
+				<div class="col-xs-7" >
+						<div id="optionbuttons">	
+							<button class="btn btn-primary" ng-click="myOrderBy='-priority'">Order by highest priority</button>
+							<button class="btn btn-primary" ng-click="myOrderBy='+priority'">Order by lowest priority</button>
+							<button class="btn btn-primary" ng-click="myOrderBy='name';">Order alphabetically</button>
+						</div>
+							<div id= "optionbuttonoutput">
+								<div ng-repeat="item in tasklist | orderBy: myOrderBy" class="alert" ng-class="{'alert-warning': item.priority == '1', 'alert-info': item.priority == '2', 'alert-danger': item.priority == '3'}">{{item.name}}</div>
+							</div>
+				</div>
+			</div>
+
+			<!-- bower:js -->
+			<script src="bower_components/angular/angular.js"></script>
+			<script src="bower_components/jquery/dist/jquery.js"></script>
+			<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+			<!-- endbower -->
+			<!-- inject:js -->
+			<script src="js/index.js"></script>
+			<!-- endinject -->
+		</div>
+	</body>
+</html>
